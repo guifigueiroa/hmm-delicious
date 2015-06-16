@@ -1,0 +1,15 @@
+<div class="row">
+  <aside class="col-md-4">
+    <section class="user_info">
+      <h1>
+        <%= @recipe.name %>
+        <%= @recipe.description %>
+      </h1>
+    </section>
+    <ul>
+    	<% @recipe.ingredients.each do |i| %>
+    	<li><%= i.ingredient %></li>
+    	<% end %>
+    </ul>
+  </aside>
+</div>
