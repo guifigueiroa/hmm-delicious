@@ -7,9 +7,18 @@
       </h1>
     </section>
     <ul>
-    	<% @recipe.ingredients.each do |i| %>
+    	<% @recipe.ingredients.each do |i| %> <!-- N+1 problem to fix-->
     	<li><%= i.ingredient %></li>
     	<% end %>
     </ul>
   </aside>
 </div>
+
+<div>
+  <%= form_for @ingredient, url: recipe_ingredients_path(@recipe) do |f| %>
+    <%= f.text_field :ingredient  %>
+    <%= f.submit "Adicionar", class: "btn btn-primary"  %>
+  <%end%>
+
+</div>
+

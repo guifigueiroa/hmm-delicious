@@ -1,0 +1,7 @@
+<%= form_for @ingredient, url: recipe_path(@recipe), html: { method: :put } do |f| %>
+  <%= f.text_field :ingredient, class: "form-control" %>
+  <%= f.submit "Adicionar", class: "btn btn-primary" %>
+<%end %>
+
+
+

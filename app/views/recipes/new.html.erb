@@ -1,21 +1,13 @@
 <%= form_for(@recipe) do |f| %>
-	<p>
-		<%= f.label :name, "Nome" %>
-		<%= f.text_field :name, class: "form-control" %>
-	</p>
+  <p>
+    <%= f.label :name, "Nome" %>
+    <%= f.text_field :name, class: "form-control" %>
+  </p>
 
-	<p>
-		<%= f.label :description, "Descrição" %>
-		<%= f.text_area :description, class: "form-control" %>
-	</p>
+  <p>
+    <%= f.label :description, "Descrição" %>
+    <%= f.text_area :description, class: "form-control" %>
+  </p>
 
-	<%= f.fields_for :ingredients do |ing| %>
-		<%= ing.text_field :ingredient, class: "form-control" %>
-	<% end %>
-
-	<%= f.fields_for :prep_steps do |ing| %>
-		<%= ing.text_field :prep_step, class: "form-control" %>
-	<% end %>
-
-	<%= f.submit "Salvar receita", class: "btn btn-primary" %>
+  <%= f.submit "Criar receita", class: "btn btn-primary" %>
 <% end %>
