@@ -1,16 +1,12 @@
 <div class="row">
   <aside class="col-md-4">
-    <section class="user_info">
+    <section class="recipe_info">
       <h1>
         <%= @recipe.name %>
         <%= @recipe.description %>
       </h1>
     </section>
-    <ul>
-    	<% @recipe.ingredients.each do |i| %> <!-- N+1 problem to fix-->
-    	<li><%= i.ingredient %></li>
-    	<% end %>
-    </ul>
+    <%= render @recipe.ingredients %>
   </aside>
 </div>
 
@@ -20,5 +16,17 @@
     <%= f.submit "Adicionar", class: "btn btn-primary"  %>
   <%end%>
 
+</div>
+
+</br>
+<div>
+  <h1>Modo de preparo</h1>
+
+  <%= render @recipe.prep_steps %>
+
+  <%= form_for @prep_step, url: recipe_prep_steps_path(@recipe) do |f| %>
+    <%= f.text_area :description  %>
+    <%= f.submit "Adicionar", class: "btn btn-primary"  %>
+  <%end%>
 </div>
 

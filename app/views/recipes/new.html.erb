@@ -9,5 +9,10 @@
     <%= f.text_area :description, class: "form-control" %>
   </p>
 
+  <p>
+    <%= f.label :cooking_time, "Tempo de preparo" %>
+    <%= time_select(:recipe, :cooking_time, { ampm: false, prompt: {hour: 'Horas', minute: 'Minutos'}, minute_step: 5}) %>
+  </p>
+
   <%= f.submit "Criar receita", class: "btn btn-primary" %>
 <% end %>
