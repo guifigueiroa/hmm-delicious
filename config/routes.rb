@@ -5,10 +5,7 @@ Rails.application.routes.draw do
     resources :prep_steps, only: [:create, :destroy]
   end
 
-
-
-
-  root 'recipes#new'
+  root 'recipes#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

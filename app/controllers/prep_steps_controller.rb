@@ -10,7 +10,7 @@ class PrepStepsController < ApplicationController
   end
 
   private
-    def prep_step_params
-      params.require(:prep_step).permit(:description)
-    end
+  def prep_step_params
+   params.require(:prep_step).permit(:description)
+  end
 end

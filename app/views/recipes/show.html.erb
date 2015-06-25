@@ -1,32 +1,37 @@
 <div class="row">
-  <aside class="col-md-4">
     <section class="recipe_info">
       <h1>
         <%= @recipe.name %>
-        <%= @recipe.description %>
       </h1>
+      <h2>
+        <%= @recipe.description %>
+      </h2>
     </section>
-    <%= render @recipe.ingredients %>
-  </aside>
+
+
+    <article id="ingredints">
+      <h1>Ingredientes</h1>
+
+      <%= render @recipe.ingredients %>
+      <%= form_for @ingredient, url: recipe_ingredients_path(@recipe) do |f| %>
+        <%= f.text_field :ingredient  %>
+        <%= f.submit "Adicionar", class: "btn btn-primary"  %>
+      <%end%>
+
+    </article>
+
+    </br>
+    <article id="prep_steps">
+      <h1>Modo de preparo</h1>
+
+      <%= render @recipe.prep_steps %>
+
+      <%= form_for @prep_step, url: recipe_prep_steps_path(@recipe) do |f| %>
+        <%= f.text_area :description  %>
+        <%= f.submit "Adicionar", class: "btn btn-primary"  %>
+      <%end%>
+    </article>
 </div>
 
-<div>
-  <%= form_for @ingredient, url: recipe_ingredients_path(@recipe) do |f| %>
-    <%= f.text_field :ingredient  %>
-    <%= f.submit "Adicionar", class: "btn btn-primary"  %>
-  <%end%>
 
-</div>
-
-</br>
-<div>
-  <h1>Modo de preparo</h1>
-
-  <%= render @recipe.prep_steps %>
-
-  <%= form_for @prep_step, url: recipe_prep_steps_path(@recipe) do |f| %>
-    <%= f.text_area :description  %>
-    <%= f.submit "Adicionar", class: "btn btn-primary"  %>
-  <%end%>
-</div>
 
