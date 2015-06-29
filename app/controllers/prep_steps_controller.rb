@@ -1,5 +1,5 @@
 class PrepStepsController < ApplicationController
-  before_action :authenticate_user!, except: [:destroy]
+  before_action :authenticate_user!
 
   def create
     @recipe = Recipe.find(params[:recipe_id])
