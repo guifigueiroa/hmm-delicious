@@ -1,4 +1,6 @@
 class RecipesController < ApplicationController
+  before_action :authenticate_user!, except: [:index]
+
   def recipe
     @recipe ||= Recipe.find(params[:id])
   end

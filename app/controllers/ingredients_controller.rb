@@ -1,4 +1,6 @@
 class IngredientsController < ApplicationController
+  before_action :authenticate_user!
+
   def create
     @recipe = Recipe.find(params[:recipe_id])
     @ingredient = @recipe.ingredients.build(ingredient_params)
