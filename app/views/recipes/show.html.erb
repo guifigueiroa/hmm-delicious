@@ -14,6 +14,7 @@
 
       <%= render @recipe.ingredients %>
       <%= form_for @ingredient, url: recipe_ingredients_path(@recipe) do |f| %>
+        <%= render 'layouts/error_messages', object: f.object %>
         <%= f.text_field :ingredient  %>
         <%= f.submit "Adicionar", class: "btn btn-primary"  %>
       <%end%>

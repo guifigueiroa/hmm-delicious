@@ -26,7 +26,6 @@ class RecipesController < ApplicationController
       flash[:success] = "Receita salva com sucesso"
       redirect_to @recipe
     else
-      flash[:error] = "Erro ao salvar receita"
       render 'new'
     end
   end
