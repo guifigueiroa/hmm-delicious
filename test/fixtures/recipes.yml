@@ -1,11 +1,4 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
 one:
-  name: MyString
-  description: MyText
-  cooking_time: 2015-06-09 22:38:05
-
-two:
-  name: MyString
-  description: MyText
-  cooking_time: 2015-06-09 22:38:05
+  name: Receita1
+  description: Descrição
+  cooking_time: 01:20
