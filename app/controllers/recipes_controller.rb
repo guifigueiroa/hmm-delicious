@@ -34,6 +34,13 @@ class RecipesController < ApplicationController
 
   end
 
+  def hmm
+    @hmm = recipe.hmms.new
+    @hmm.user = current_user
+    @hmm.save
+    redirect_to recipes_path
+  end
+
   def destroy
     recipe.destroy
   end

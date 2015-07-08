@@ -2,4 +2,8 @@
   <%= link_to image_tag(recipe.image.url(:large)), recipe.image.url %>
   <p><%= link_to recipe.name, recipe%></p>
   <p>Tempo de preparo: <%= recipe.cooking_time_formatted %></p>
+  <% if user_signed_in? %>
+    <%= link_to "Hmm", hmm_recipe_path(recipe), method: :put %>
+    (<%= recipe.hmms.size %>)
+  <% end %>
 </div>

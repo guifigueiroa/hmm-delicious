@@ -11,7 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150629225323) do
+ActiveRecord::Schema.define(version: 20150708002141) do
+
+  create_table "hmms", force: :cascade do |t|
+    t.integer  "user_id",    limit: 4, null: false
+    t.integer  "recipe_id",  limit: 4, null: false
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
+  add_index "hmms", ["recipe_id"], name: "index_hmms_on_recipe_id", using: :btree
+  add_index "hmms", ["user_id", "recipe_id"], name: "index_hmms_on_user_id_and_recipe_id", unique: true, using: :btree
+  add_index "hmms", ["user_id"], name: "index_hmms_on_user_id", using: :btree
 
   create_table "ingredients", force: :cascade do |t|
     t.string   "ingredient", limit: 255
@@ -61,6 +72,8 @@ ActiveRecord::Schema.define(version: 20150629225323) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "hmms", "recipes"
+  add_foreign_key "hmms", "users"
   add_foreign_key "ingredients", "recipes"
   add_foreign_key "prep_steps", "recipes"
 end

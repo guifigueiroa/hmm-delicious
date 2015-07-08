@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   resources :recipes do
     resources :ingredients, only: [:create, :destroy]
     resources :prep_steps, only: [:create, :destroy]
+    member do
+      put "hmm", to: "recipes#hmm"
+    end
   end
 
   root 'recipes#index'

@@ -4,7 +4,9 @@ class PrepStepsController < ApplicationController
   def create
     @recipe = Recipe.find(params[:recipe_id])
     @prep_step = @recipe.prep_steps.build(prep_step_params)
-    @prep_step.save
+    unless @prep_step.save.save
+      flash[:error] = "Por favor, preencha o modo de preparo"
+    end
     redirect_to recipe_path(@recipe)
   end
 

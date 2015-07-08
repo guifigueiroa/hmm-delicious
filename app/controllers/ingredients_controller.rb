@@ -4,7 +4,7 @@ class IngredientsController < ApplicationController
   def create
     @recipe = Recipe.find(params[:recipe_id])
     @ingredient = @recipe.ingredients.build(ingredient_params)
-    if(!@ingredient.save)
+    unless @ingredient.save
       flash[:error] = "Por favor, preencha o ingrediente"
     end
     redirect_to recipe_path(@recipe)
