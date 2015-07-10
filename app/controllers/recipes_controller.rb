@@ -23,7 +23,7 @@ class RecipesController < ApplicationController
     @recipe = Recipe.new(recipe_params)
 
     if @recipe.save
-      flash[:success] = "Receita salva com sucesso"
+      flash[:success] = t(:recipe_saved)
       redirect_to @recipe
     else
       render 'new'

@@ -5,14 +5,14 @@ class IngredientsController < ApplicationController
     @recipe = Recipe.find(params[:recipe_id])
     @ingredient = @recipe.ingredients.build(ingredient_params)
     unless @ingredient.save
-      flash[:error] = "Por favor, preencha o ingrediente"
+      flash[:error] = t(:fill_ingredient)
     end
     redirect_to recipe_path(@recipe)
   end
 
   def destroy
     ingredient.destroy
-    flash[:success] = "Ingrediente excluído"
+    flash[:success] = t(:deleted_ingredient)
     redirect_to request.referrer || root_url
   end
 
