@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     end
   end
 
+  get 'myrecipes' => 'recipes#myrecipes'
   root 'recipes#index'
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -5,4 +5,5 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   has_many :recipes, through: :hmms
   has_many :hmms
+  has_many :recipes
 end

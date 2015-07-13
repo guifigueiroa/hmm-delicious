@@ -1,10 +1,16 @@
 
 pt-BR:
+  home: "Home"
+  new_recipe: "Nova receita"
+  my_recipes: "Minhas receitas"
+  options: "Opções"
+  logout: "Sair"
   fill_ingredient: "Por favor, preencha o ingrediente"
   fill_prep_step: "Por favor, preencha o modo de preparo"
   deleted_ingredient: "Ingrediente excluído"
   deleted_prep_step: "Modo de preparo excluído"
   recipe_saved: "Receita salva com sucesso"
+  sure_delete: "Tem certeza que deseja excluir?"
   time:
       formats:
         cooking_time: "%H horas e %M minutos"

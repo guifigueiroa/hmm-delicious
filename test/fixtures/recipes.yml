@@ -2,3 +2,4 @@ one:
   name: Receita1
   description: Descrição
   cooking_time: 01:20
+  user_id: 1

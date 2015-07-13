@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150708002141) do
+ActiveRecord::Schema.define(version: 20150711010737) do
 
   create_table "hmms", force: :cascade do |t|
     t.integer  "user_id",    limit: 4, null: false
@@ -52,7 +52,10 @@ ActiveRecord::Schema.define(version: 20150708002141) do
     t.string   "image_content_type", limit: 255
     t.integer  "image_file_size",    limit: 4
     t.datetime "image_updated_at"
+    t.integer  "user_id",            limit: 4
   end
+
+  add_index "recipes", ["user_id"], name: "index_recipes_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  limit: 255, default: "", null: false
@@ -76,4 +79,5 @@ ActiveRecord::Schema.define(version: 20150708002141) do
   add_foreign_key "hmms", "users"
   add_foreign_key "ingredients", "recipes"
   add_foreign_key "prep_steps", "recipes"
+  add_foreign_key "recipes", "users"
 end

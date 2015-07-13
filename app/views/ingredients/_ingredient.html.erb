@@ -1,6 +1,7 @@
 <%= ingredient.ingredient %>
-<% if(ingredient.id.present?) %>
+<!-- See how to make this code better -->
+<% if(ingredient.id.present? and ingredient.recipe.user == current_user) %>
   <%= link_to "x", { :action=>"destroy", :controller=>"ingredients",
                       :id => ingredient.id, :recipe_id => ingredient.recipe.id },
-                     method: :delete, data: { confirm: "Certeza?" } %>
+                     method: :delete, data: { confirm: t(:sure_delete) } %>
 <% end %> <br />

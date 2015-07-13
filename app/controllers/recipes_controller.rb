@@ -1,5 +1,5 @@
 class RecipesController < ApplicationController
-  before_action :authenticate_user!, except: [:index]
+  before_action :authenticate_user!, except: [:index, :show]
 
   def recipe
     @recipe ||= Recipe.find(params[:id])
@@ -21,6 +21,7 @@ class RecipesController < ApplicationController
 
   def create
     @recipe = Recipe.new(recipe_params)
+    @recipe.user = current_user
 
     if @recipe.save
       flash[:success] = t(:recipe_saved)
@@ -32,6 +33,10 @@ class RecipesController < ApplicationController
 
   def update
 
+  end
+
+  def myrecipes
+    @recipes = Recipe.where(user: current_user)
   end
 
   def hmm

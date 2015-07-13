@@ -1,37 +1,43 @@
 <div class="row">
-    <section class="recipe_info">
-      <h1>
-        <%= @recipe.name %>
-      </h1>
-      <h2>
-        <%= @recipe.description %>
-      </h2>
-    </section>
+  <section class="recipe_info">
+    <h1>
+      <%= @recipe.name %>
+    </h1>
+    <h2>
+      <%= @recipe.description %>
+    </h2>
+  </section>
 
 
-    <article id="ingredints">
-      <h1>Ingredientes</h1>
+  <article id="ingredints">
+    <h1>Ingredientes</h1>
 
-      <%= render @recipe.ingredients %>
+    <%= render @recipe.ingredients %>
+
+    <% if @recipe.user == current_user %>
       <%= form_for @ingredient, url: recipe_ingredients_path(@recipe) do |f| %>
         <%= render 'layouts/error_messages', object: f.object %>
         <%= f.text_field :ingredient  %>
         <%= f.submit "Adicionar", class: "btn btn-primary"  %>
-      <%end%>
+      <% end %>
+    <% end %>
 
-    </article>
+  </article>
 
-    </br>
-    <article id="prep_steps">
-      <h1>Modo de preparo</h1>
+  </br>
+  <article id="prep_steps">
+    <h1>Modo de preparo</h1>
 
-      <%= render @recipe.prep_steps %>
+    <%= render @recipe.prep_steps %>
 
+    <% if @recipe.user == current_user %>
       <%= form_for @prep_step, url: recipe_prep_steps_path(@recipe) do |f| %>
         <%= f.text_area :description  %>
         <%= f.submit "Adicionar", class: "btn btn-primary"  %>
-      <%end%>
-    </article>
+      <% end %>
+    <% end %>
+
+  </article>
 </div>
 
 
