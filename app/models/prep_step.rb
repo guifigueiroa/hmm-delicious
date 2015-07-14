@@ -1,4 +1,4 @@
 class PrepStep < ActiveRecord::Base
   belongs_to :recipe
-  validates :ingredient, presence: true
+  validates :description, presence: true
 end

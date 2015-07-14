@@ -43,7 +43,7 @@ class RecipesController < ApplicationController
     @hmm = recipe.hmms.new
     @hmm.user = current_user
     @hmm.save
-    redirect_to recipes_path
+    redirect_to request.referrer || root_url
   end
 
   def destroy

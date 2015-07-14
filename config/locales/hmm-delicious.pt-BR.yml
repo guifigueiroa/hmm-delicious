@@ -5,6 +5,8 @@ pt-BR:
   my_recipes: "Minhas receitas"
   options: "Opções"
   logout: "Sair"
+  hmm: "Hmm"
+  add: "Adicionar"
   fill_ingredient: "Por favor, preencha o ingrediente"
   fill_prep_step: "Por favor, preencha o modo de preparo"
   deleted_ingredient: "Ingrediente excluído"
