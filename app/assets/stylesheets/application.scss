@@ -4,11 +4,18 @@
 $gray-medium-light: #eaeaea;
 $cool-blue: #26C0EF;
 $article-color: #C0CDD0;
+$red: #DB6161;
 
 @mixin box_sizing {
   -moz-box-sizing:    border-box;
   -webkit-box-sizing: border-box;
   box-sizing:         border-box;
+}
+
+@mixin box-shadow {
+  -webkit-box-shadow: rgba(0, 0, 0, 0.19) 0 3px 0;
+  -moz-box-shadow: rgba(0, 0, 0, 0.19) 0 3px 0;
+  box-shadow: rgba(0, 0, 0, 0.19) 0 3px 0;
 }
 
 /* Universal */
@@ -34,16 +41,11 @@ textarea {
 }
 
 article {
+  border-radius: 10px;
   background-color: $article-color;
   margin: 15px;
   padding: 15px;
   width: 40%;
-  #ingredients{
-    float: left;
-  }
-  #prep_steps{
-    float: right;
-  }
 }
 
 /* typography */
@@ -157,6 +159,33 @@ footer {
     li {
       float: left;
       margin-left: 15px;
+    }
+  }
+}
+
+
+
+.recipe_info {
+  background: white;
+  border-radius: 5px;
+  margin-bottom: 40px;
+  @include box-shadow;
+  overflow: hidden;
+  img {
+    width: 100%;
+    -webkit-transition: all .3s ease-out;
+    -moz-transition: all .3s ease-out;
+    -o-transition: all .3s ease-out;
+    transition: all .3s ease-out;
+    &:hover {
+      transform: scale(1.075);
+    }
+  }
+  p {
+    padding: 15px 5%;
+    margin: 0;
+    a {
+      color: $red;
     }
   }
 }

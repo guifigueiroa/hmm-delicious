@@ -9,6 +9,9 @@
     <h2>
       <%= @recipe.description %>
     </h2>
+    <p>
+      <%= image_tag(@recipe.image.url(:large)) %>
+    </p>
   </section>
 
 
