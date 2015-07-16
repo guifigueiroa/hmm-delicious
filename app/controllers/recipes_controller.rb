@@ -40,9 +40,10 @@ class RecipesController < ApplicationController
   end
 
   def hmm
-    @hmm = recipe.hmms.new
-    @hmm.user = current_user
-    @hmm.save
+    unless recipe.hmm_by(current_user)
+      flash[:danger] = recipe.errors.full_messages.last
+    end
+
     redirect_to request.referrer || root_url
   end
 

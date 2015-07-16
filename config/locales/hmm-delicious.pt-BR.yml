@@ -13,6 +13,10 @@ pt-BR:
   deleted_prep_step: "Modo de preparo excluído"
   recipe_saved: "Receita salva com sucesso"
   sure_delete: "Tem certeza que deseja excluir?"
+  hmm_own_recipe_not_permitted: "Hmm não permitido para própria receita"
   time:
       formats:
         cooking_time: "%H horas e %M minutos"
+  activerecord:
+    models:
+      ingredient: "Ingrediente"

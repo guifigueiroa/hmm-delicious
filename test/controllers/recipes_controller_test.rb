@@ -9,8 +9,6 @@ class RecipesControllerTest < ActionController::TestCase
   test "should redirect when not logged in" do
     get :new
     assert_redirected_to new_user_session_path
-    get :show, id: @recipe
-    assert_redirected_to new_user_session_path
   end
 
   test "should show recipes when not logged in" do
