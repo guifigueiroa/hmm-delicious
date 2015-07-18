@@ -25,14 +25,6 @@ body {
   background-color: $gray-lighter;
 }
 
-section {
-  overflow: auto;
-}
-
-textarea {
-  resize: vertical;
-}
-
 .center {
   text-align: center;
   h1 {
@@ -45,6 +37,8 @@ article {
   background-color: $article-color;
   margin: 15px;
   padding: 15px;
+  @include box-shadow;
+
 }
 
 /* typography */
@@ -102,15 +96,6 @@ p {
 
 /* forms */
 
-input, textarea, select, .uneditable-input {
-  border: 1px solid #bbb;
-  margin-bottom: 15px;
-  @include box_sizing;
-}
-
-input {
-  height: auto !important;
-}
 
 #error_explanation {
   color: red;

@@ -21,16 +21,17 @@
 
 <div class="row">
   <div class="col-md-6">
-    <article id="ingredints">
+    <article id="ingredients">
       <h1>Ingredientes</h1>
 
       <%= render @recipe.ingredients %>
 
       <% if @recipe.user == current_user %>
-        <%= form_for @ingredient, url: recipe_ingredients_path(@recipe) do |f| %>
-          <%= render 'layouts/error_messages', object: f.object %>
-          <%= f.text_field :ingredient  %>
-          <%= f.submit t(:add), class: "btn btn-primary"  %>
+        <%= form_for @ingredient, url: recipe_ingredients_path(@recipe), html: { class: "form-inline" } do |f| %>
+          <div class="form-group">
+            <%= f.text_field :ingredient, placeholder: (t :placeholder_new_ingredient), class: "form-control" %>
+          </div>
+          <%= f.submit t(:add), class: "btn btn-default" %>
         <% end %>
       <% end %>
 
@@ -44,9 +45,11 @@
       <%= render @recipe.prep_steps %>
 
       <% if @recipe.user == current_user %>
-        <%= form_for @prep_step, url: recipe_prep_steps_path(@recipe) do |f| %>
-          <%= f.text_area :description  %>
-          <%= f.submit t(:add), class: "btn btn-primary"  %>
+        <%= form_for @prep_step, url: recipe_prep_steps_path(@recipe), html: { class: "form-inline" } do |f| %>
+          <div class="form-group">
+            <%= f.text_area :description, placeholder: (t :placeholder_new_step), class: "form-control"  %>
+          </div>
+          <%= f.submit t(:add), class: "btn btn-default" %>
         <% end %>
       <% end %>
 

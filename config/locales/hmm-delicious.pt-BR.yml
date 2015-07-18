@@ -14,15 +14,22 @@ pt-BR:
   recipe_saved: "Receita salva com sucesso"
   sure_delete: "Tem certeza que deseja excluir?"
   hmm_own_recipe_not_permitted: "Hmm não permitido para própria receita"
+  placeholder_new_ingredient: "Ex. 2 colheres (chá) de açucar"
+  placeholder_new_step: "Ex. Bata todos os ingredientes até obter uma mistura homogênea"
   minutes: "minutos"
   time:
       formats:
         cooking_time: "%H horas e %M minutos"
   activerecord:
     models:
-      recipe: Recipe
+      recipe: Receita
     attributes:
       recipe:
         name: "Nome da receita"
         description: "Descrição"
         cooking_time: "Tempo de preparo (minutos)"
+      user:
+        email: E-mail
+        password: Senha
+        password_confirmation: Confirmação de senha
+        remember_me: "Lembrar-se"
