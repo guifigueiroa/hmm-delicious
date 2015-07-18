@@ -14,9 +14,15 @@ pt-BR:
   recipe_saved: "Receita salva com sucesso"
   sure_delete: "Tem certeza que deseja excluir?"
   hmm_own_recipe_not_permitted: "Hmm não permitido para própria receita"
+  minutes: "minutos"
   time:
       formats:
         cooking_time: "%H horas e %M minutos"
   activerecord:
     models:
-      ingredient: "Ingrediente"
+      recipe: Recipe
+    attributes:
+      recipe:
+        name: "Nome da receita"
+        description: "Descrição"
+        cooking_time: "Tempo de preparo (minutos)"

@@ -3,7 +3,7 @@
   <div class="recipe_info">
     <%= link_to image_tag(recipe.image.url(:large)), recipe %>
     <p><%= link_to recipe.name, recipe %></p>
-    <p>Tempo de preparo: <%= l(recipe.cooking_time, format: :cooking_time) if recipe.cooking_time %></p>
+    <p><%= recipe.cooking_time %><%= " "+t(:minutes) %></p>
     <% if user_signed_in? %>
       <p>
         <%= link_to "Hmm"+" ("+recipe.hmms.size.to_s+")", hmm_recipe_path(recipe), method: :put %>

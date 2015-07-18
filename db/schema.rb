@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150711010737) do
+ActiveRecord::Schema.define(version: 20150718002343) do
 
   create_table "hmms", force: :cascade do |t|
     t.integer  "user_id",    limit: 4, null: false
@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 20150711010737) do
   create_table "recipes", force: :cascade do |t|
     t.string   "name",               limit: 255
     t.text     "description",        limit: 65535
-    t.time     "cooking_time"
+    t.integer  "cooking_time",       limit: 4
     t.datetime "created_at",                       null: false
     t.datetime "updated_at",                       null: false
     t.string   "image_file_name",    limit: 255

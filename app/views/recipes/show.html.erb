@@ -1,49 +1,57 @@
 <div class="row">
-  <section class="recipe_info">
-    <h1>
-      <%= @recipe.name %>
-      <% unless @recipe.user == current_user %>
-        <%= link_to t(:hmm)+" ("+@recipe.hmms.size.to_s+")", hmm_recipe_path(@recipe), method: :put %>
+  <div class="col-md-12">
+    <section class="recipe_info">
+      <h1>
+        <%= @recipe.name %>
+        <% unless @recipe.user == current_user %>
+          <%= link_to t(:hmm)+" ("+@recipe.hmms.size.to_s+")", hmm_recipe_path(@recipe), method: :put %>
+        <% end %>
+      </h1>
+      <h2>
+        <%= @recipe.description %>
+      </h2>
+
+      <div class="recipe_image">
+        <%= image_tag(@recipe.image.url(:large)) %>
+      </div>
+
+    </section>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-6">
+    <article id="ingredints">
+      <h1>Ingredientes</h1>
+
+      <%= render @recipe.ingredients %>
+
+      <% if @recipe.user == current_user %>
+        <%= form_for @ingredient, url: recipe_ingredients_path(@recipe) do |f| %>
+          <%= render 'layouts/error_messages', object: f.object %>
+          <%= f.text_field :ingredient  %>
+          <%= f.submit t(:add), class: "btn btn-primary"  %>
+        <% end %>
       <% end %>
-    </h1>
-    <h2>
-      <%= @recipe.description %>
-    </h2>
-    <p>
-      <%= image_tag(@recipe.image.url(:large)) %>
-    </p>
-  </section>
 
+    </article>
+  </div>
 
-  <article id="ingredints">
-    <h1>Ingredientes</h1>
+  <div class="col-md-6">
+    <article id="prep_steps">
+      <h1>Modo de preparo</h1>
 
-    <%= render @recipe.ingredients %>
+      <%= render @recipe.prep_steps %>
 
-    <% if @recipe.user == current_user %>
-      <%= form_for @ingredient, url: recipe_ingredients_path(@recipe) do |f| %>
-        <%= render 'layouts/error_messages', object: f.object %>
-        <%= f.text_field :ingredient  %>
-        <%= f.submit t(:add), class: "btn btn-primary"  %>
+      <% if @recipe.user == current_user %>
+        <%= form_for @prep_step, url: recipe_prep_steps_path(@recipe) do |f| %>
+          <%= f.text_area :description  %>
+          <%= f.submit t(:add), class: "btn btn-primary"  %>
+        <% end %>
       <% end %>
-    <% end %>
 
-  </article>
-
-  </br>
-  <article id="prep_steps">
-    <h1>Modo de preparo</h1>
-
-    <%= render @recipe.prep_steps %>
-
-    <% if @recipe.user == current_user %>
-      <%= form_for @prep_step, url: recipe_prep_steps_path(@recipe) do |f| %>
-        <%= f.text_area :description  %>
-        <%= f.submit t(:add), class: "btn btn-primary"  %>
-      <% end %>
-    <% end %>
-
-  </article>
+    </article>
+  </div>
 </div>
 
 

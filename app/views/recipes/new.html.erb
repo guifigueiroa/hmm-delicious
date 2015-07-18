@@ -1,18 +1,18 @@
 <%= form_for @recipe, :html => { :multipart => true } do |f| %>
   <%= render 'layouts/error_messages', object: f.object %>
   <p>
-    <%= f.label :name, "Nome" %>
+    <%= f.label :name %>
     <%= f.text_field :name, class: "form-control" %>
   </p>
 
   <p>
-    <%= f.label :description, "Descrição" %>
+    <%= f.label :description %>
     <%= f.text_area :description, class: "form-control" %>
   </p>
 
   <p>
-    <%= f.label :cooking_time, "Tempo de preparo" %>
-    <%= time_select(:recipe, :cooking_time, { ampm: false, prompt: {hour: 'Horas', minute: 'Minutos'}, minute_step: 5}) %>
+    <%= f.label :cooking_time %>
+    <%= number_field(:recipe, :cooking_time, in: 1..120, step: 1) %>
   </p>
 
   <p>

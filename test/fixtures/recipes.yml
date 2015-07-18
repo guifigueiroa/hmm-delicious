@@ -1,5 +1,5 @@
 one:
   name: Receita1
   description: Descrição
-  cooking_time: 01:20
+  cooking_time: 10
   user_id: 1
