@@ -4,7 +4,7 @@
       <h1>
         <%= @recipe.name %>
         <% unless @recipe.user == current_user %>
-          <%= link_to t(:hmm)+" ("+@recipe.hmms.size.to_s+")", hmm_recipe_path(@recipe), method: :put %>
+          <%= link_to("#{t(:hmm)}(#{@recipe.hmms.size.to_s})", hmm_recipe_path(@recipe), method: :put) %>
         <% end %>
       </h1>
       <h2>

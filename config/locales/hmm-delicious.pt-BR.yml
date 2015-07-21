@@ -28,6 +28,7 @@ pt-BR:
         name: "Nome da receita"
         description: "Descrição"
         cooking_time: "Tempo de preparo (minutos)"
+        image: "Imagem"
       user:
         email: E-mail
         password: Senha
