@@ -49,6 +49,7 @@ class RecipesController < ApplicationController
 
   def destroy
     recipe.destroy
+    redirect_to request.referrer || root_url
   end
 
   private

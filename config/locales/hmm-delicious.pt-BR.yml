@@ -7,6 +7,7 @@ pt-BR:
   logout: "Sair"
   hmm: "Hmm"
   add: "Adicionar"
+  delete: "Excluir"
   fill_ingredient: "Por favor, preencha o ingrediente"
   fill_prep_step: "Por favor, preencha o modo de preparo"
   deleted_ingredient: "Ingrediente excluído"

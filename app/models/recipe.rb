@@ -1,7 +1,7 @@
 class Recipe < ActiveRecord::Base
   has_many :ingredients, dependent: :destroy
   has_many :prep_steps, dependent: :destroy
-  has_many :hmms
+  has_many :hmms, dependent: :destroy
   has_many :users, -> { uniq }, through: :hmms
   belongs_to :user
   validates :name, presence: true, length: { maximum: 50 }
@@ -14,5 +14,9 @@ class Recipe < ActiveRecord::Base
     @hmm = self.hmms.new
     @hmm.user = user
     return @hmm.save
+  end
+
+  def belongs_to? (user)
+    self.user == user
   end
 end

@@ -1,7 +1,12 @@
 <div class="col-md-3 col-sm-12">
 
   <div class="recipe_info">
-    <%= link_to image_tag(recipe.image.url(:large)), recipe %>
+    <div id="recipe_image">
+      <%= link_to image_tag(recipe.image.url(:large)), recipe %>
+      <% if recipe.belongs_to?(current_user) %>
+        <%= button_to t(:delete), recipe_path(recipe), method: :delete, class: "btn btn-danger" %>
+      <% end %>
+    </div>
     <p><%= link_to recipe.name, recipe %></p>
     <p><%= recipe.cooking_time %><%= " "+t(:minutes) %></p>
     <% if user_signed_in? %>
