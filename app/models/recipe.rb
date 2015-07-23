@@ -19,4 +19,8 @@ class Recipe < ActiveRecord::Base
   def belongs_to? (user)
     self.user == user
   end
+
+  def self.search (query)
+    where("name like ?", "%#{query}%")
+  end
 end

@@ -84,6 +84,9 @@ p {
 .navbar {
     background-color: $cool-blue;
     font-weight: bold;
+    input {
+      font-weight: normal;
+    }
 }
 
 .navbar .navbar-nav > li > a {
