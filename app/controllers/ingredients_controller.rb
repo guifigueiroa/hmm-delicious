@@ -1,6 +1,10 @@
 class IngredientsController < ApplicationController
   before_action :authenticate_user!
 
+  def ingredient
+    ingredient ||= Ingredient.find(params[:id])
+  end
+
   def create
     @recipe = Recipe.find(params[:recipe_id])
     @ingredient = @recipe.ingredients.build(ingredient_params)
@@ -11,13 +15,10 @@ class IngredientsController < ApplicationController
   end
 
   def destroy
-    ingredient.destroy
-    flash[:success] = t(:deleted_ingredient)
+    if ingredient.destroy
+      flash[:success] = t(:deleted_ingredient)
+    end
     redirect_to request.referrer || root_url
-  end
-
-  def ingredient
-    ingredient ||= Ingredient.find(params[:id])
   end
 
   private

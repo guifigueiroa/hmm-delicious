@@ -6,4 +6,5 @@ class User < ActiveRecord::Base
   has_many :recipes, through: :hmms
   has_many :hmms
   has_many :recipes
+  has_many :reviews
 end

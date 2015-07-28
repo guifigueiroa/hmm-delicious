@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  get 'review/create'
+
+  get 'review/destroy'
+
   devise_for :users
   resources :recipes do
     resources :ingredients, only: [:create, :destroy]

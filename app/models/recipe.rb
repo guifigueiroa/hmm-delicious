@@ -3,6 +3,7 @@ class Recipe < ActiveRecord::Base
   has_many :prep_steps, dependent: :destroy
   has_many :hmms, dependent: :destroy
   has_many :users, -> { uniq }, through: :hmms
+  has_many :reviews
   belongs_to :user
   validates :name, presence: true, length: { maximum: 50 }
   validates :cooking_time, presence: :true
