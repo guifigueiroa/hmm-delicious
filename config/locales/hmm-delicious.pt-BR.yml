@@ -17,7 +17,10 @@ pt-BR:
   hmm_own_recipe_not_permitted: "Hmm não permitido para própria receita"
   placeholder_new_ingredient: "Ex. 2 colheres (chá) de açucar"
   placeholder_new_step: "Ex. Bata todos os ingredientes até obter uma mistura homogênea"
+  placeholder_new_review: "O que achou desta receita? Tem sugestões, críticas ou comentários?"
   minutes: "minutos"
+  no_recipes_to_show: "Não existem receitas com os critérios selecionados"
+  no_recipes_created: "Você ainda não criou nenhuma receita."
   time:
       formats:
         cooking_time: "%H horas e %M minutos"

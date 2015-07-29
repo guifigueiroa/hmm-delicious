@@ -1,4 +1,4 @@
-class ReviewController < ApplicationController
+class ReviewsController < ApplicationController
   def create
     @recipe = Recipe.find(params[:recipe_id])
     @review = @recipe.reviews.build(review_params)
@@ -18,7 +18,7 @@ class ReviewController < ApplicationController
   end
 
   private
-  def ingredient_params
+  def review_params
     params.require(:review).permit(:review, :stars)
   end
 end

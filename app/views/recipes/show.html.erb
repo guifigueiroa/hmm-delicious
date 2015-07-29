@@ -57,5 +57,20 @@
   </div>
 </div>
 
+<div class="row">
+  <div class="col-md-12">
+    <article id="reviews">
+      <h1>Comentários</h1>
+      <%= render @recipe.reviews %>
+      <%= form_for @review, url: recipe_reviews_path(@recipe), html: { class: "form-inline" } do |f| %>
+          <div class="form-group">
+            <%= f.text_area :review, placeholder: (t :placeholder_new_review), class: "form-control"  %>
+          </div>
+          <%= f.submit t(:add), class: "btn btn-default" %>
+        <% end %>
+    </article>
+  </div>
+</div>
+
 
 

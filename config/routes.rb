@@ -1,13 +1,10 @@
 Rails.application.routes.draw do
 
-  get 'review/create'
-
-  get 'review/destroy'
-
   devise_for :users
   resources :recipes do
     resources :ingredients, only: [:create, :destroy]
     resources :prep_steps, only: [:create, :destroy]
+    resources :reviews, only: [:create, :destroy]
     member do
       put "hmm", to: "recipes#hmm"
     end

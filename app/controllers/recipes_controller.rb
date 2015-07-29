@@ -16,11 +16,16 @@ class RecipesController < ApplicationController
     else
       @recipes = Recipe.all
     end
+
+    if @recipes.empty?
+      flash[:info] = t(:no_recipes_to_show)
+    end
   end
 
   def show
     @ingredient = recipe.ingredients.build
     @prep_step = recipe.prep_steps.build
+    @review = recipe.reviews.build
   end
 
   def create
@@ -41,6 +46,9 @@ class RecipesController < ApplicationController
 
   def myrecipes
     @recipes = Recipe.where(user: current_user)
+    if @recipes.empty?
+      flash[:info] = t(:no_recipes_created)
+    end
   end
 
   def hmm
