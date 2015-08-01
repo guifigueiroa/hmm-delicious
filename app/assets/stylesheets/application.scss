@@ -2,7 +2,7 @@
 @import "bootstrap";
 
 $gray-medium-light: #eaeaea;
-$cool-blue: #26C0EF;
+$main-color: #83D68F;
 $article-color: #C0CDD0;
 $red: #DB6161;
 
@@ -82,7 +82,7 @@ p {
 }
 
 .navbar {
-    background-color: $cool-blue;
+    background-color: $main-color;
     font-weight: bold;
     input {
       font-weight: normal;
