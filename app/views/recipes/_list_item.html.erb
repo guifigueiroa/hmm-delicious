@@ -1,0 +1,8 @@
+<li class="list-group-item">
+
+  <% if(list_item.recipe.belongs_to?(current_user)) %>
+    <%= link_to "x", { action: "destroy", controller: controller_name,
+                        id: list_item.id, recipe_id: list_item.recipe.id },
+                       method: :delete, data: { confirm: t(:sure_delete) } %>
+  <% end %>
+</li>

@@ -1,7 +1,7 @@
 <li class="list-group-item">
   <%= ingredient.ingredient %>
   <!-- See how to make this code better -->
-  <% if(ingredient.recipe.user.belongs_to?(current_user)) %>
+  <% if(ingredient.recipe.belongs_to?(current_user)) %>
     <%= link_to "x", { :action=>"destroy", :controller=>"ingredients",
                         :id => ingredient.id, :recipe_id => ingredient.recipe.id },
                        method: :delete, data: { confirm: t(:sure_delete) } %>

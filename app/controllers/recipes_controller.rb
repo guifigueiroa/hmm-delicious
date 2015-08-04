@@ -1,15 +1,6 @@
 class RecipesController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
-  def recipe
-    @recipe ||= Recipe.find(params[:id])
-  end
-
-  def new
-    @recipe = Recipe.new
-
-  end
-
   def index
     if params[:search]
       @recipes = Recipe.search(params[:search])
@@ -17,9 +8,7 @@ class RecipesController < ApplicationController
       @recipes = Recipe.all
     end
 
-    if @recipes.empty?
-      flash[:info] = t(:no_recipes_to_show)
-    end
+    flash[:info] = t(:no_recipes_to_show) if @recipes.empty?
   end
 
   def show
@@ -41,15 +30,12 @@ class RecipesController < ApplicationController
     end
   end
 
-  def update
-
-  end
+  def update; end
 
   def myrecipes
     @recipes = Recipe.where(user: current_user)
-    if @recipes.empty?
-      flash[:info] = t(:no_recipes_created)
-    end
+
+    flash[:info] = t(:no_recipes_created) if @recipes.empty?
   end
 
   def hmm
@@ -66,7 +52,12 @@ class RecipesController < ApplicationController
   end
 
   private
+
   def recipe_params
-    params.require(:recipe).permit(:name, :description, :cooking_time, :image)
+    params.require(:recipe).permit(:name, :description, :cooking_time, :image, :search)
+  end
+
+  def recipe
+    @recipe ||= Recipe.find(params[:id])
   end
 end

@@ -1,3 +1,5 @@
-<b><%= if review.user.present? then "#{review.user.name}: " end %></b>
-<%= review.review %>
-<%= review.stars %><br />
+<li class="list-group-item">
+  <b><%= "#{review.user.name}: " %></b>
+  <%= review.review %>
+  <%= review.stars %>
+</li>
