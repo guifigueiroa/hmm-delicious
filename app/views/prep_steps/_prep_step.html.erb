@@ -1,6 +1,8 @@
-<%= prep_step.description %>
-<% if(prep_step.id.present? && prep_step.recipe.belongs_to?(current_user)) %>
-  <%= link_to "x", { :action=>"destroy", :controller=>"prep_steps",
-                      :id => prep_step.id, :recipe_id => prep_step.recipe.id },
-                     method: :delete, data: { confirm: t(:sure_delete) } %>
-<% end %> <br />
+<li class="list-group-item">
+  <%= prep_step.description %>
+  <% if(prep_step.id.present? && prep_step.recipe.belongs_to?(current_user)) %>
+    <%= link_to "x", { :action=>"destroy", :controller=>"prep_steps",
+                        :id => prep_step.id, :recipe_id => prep_step.recipe.id },
+                       method: :delete, data: { confirm: t(:sure_delete) } %>
+  <% end %>
+</li>

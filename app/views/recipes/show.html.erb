@@ -21,36 +21,43 @@
 
 <div class="row">
   <div class="col-md-6">
-    <article id="ingredients">
-      <h1>Ingredientes</h1>
-
-      <%= render @recipe.ingredients %>
+    <div class="panel panel-default">
+      <div class="panel-heading"><h4>Ingredientes</h4></div>
+      <ul class="list-group">
+        <%= render @recipe.ingredients %>
+      </ul>
 
       <% if @recipe.belongs_to?(current_user) %>
-        <%= form_for @ingredient, url: recipe_ingredients_path(@recipe), html: { class: "form-inline" } do |f| %>
-          <div class="form-group">
-            <%= f.text_field :ingredient, placeholder: (t :placeholder_new_ingredient), class: "form-control" %>
-          </div>
-          <%= f.submit t(:add), class: "btn btn-default" %>
-        <% end %>
+        <div class="panel-footer">
+          <%= form_for @ingredient, url: recipe_ingredients_path(@recipe), html: { class: "form-inline" } do |f| %>
+            <div class="form-group">
+              <%= f.text_field :ingredient, placeholder: (t :placeholder_new_ingredient), class: "form-control" %>
+            </div>
+            <%= f.submit t(:add), class: "btn btn-default" %>
+          <% end %>
+        </div>
       <% end %>
 
-    </article>
+    </div>
   </div>
 
   <div class="col-md-6">
-    <article id="prep_steps">
-      <h1>Modo de preparo</h1>
+   <div class="panel panel-default">
+      <div class="panel-heading"><h4>Modo de preparo</h4></div>
+      <ul class="list-group">
+        <%= render @recipe.prep_steps %>
+      </ul>
 
-      <%= render @recipe.prep_steps %>
 
       <% if @recipe.belongs_to?(current_user) %>
-        <%= form_for @prep_step, url: recipe_prep_steps_path(@recipe), html: { class: "form-inline" } do |f| %>
-          <div class="form-group">
-            <%= f.text_area :description, placeholder: (t :placeholder_new_step), class: "form-control"  %>
-          </div>
-          <%= f.submit t(:add), class: "btn btn-default" %>
-        <% end %>
+        <div class="panel-footer">
+          <%= form_for @prep_step, url: recipe_prep_steps_path(@recipe), html: { class: "form-inline" } do |f| %>
+            <div class="form-group">
+              <%= f.text_area :description, placeholder: (t :placeholder_new_step), class: "form-control"  %>
+            </div>
+            <%= f.submit t(:add), class: "btn btn-default" %>
+          <% end %>
+        </div>
       <% end %>
 
     </article>

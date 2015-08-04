@@ -23,9 +23,10 @@ class RecipesController < ApplicationController
   end
 
   def show
-    @ingredient = recipe.ingredients.build
-    @prep_step = recipe.prep_steps.build
-    @review = recipe.reviews.build
+    @ingredient = Ingredient.new
+    @prep_step = PrepStep.new
+    @review = Review.new
+    recipe
   end
 
   def create
